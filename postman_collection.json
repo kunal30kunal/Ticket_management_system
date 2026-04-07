@@ -1,0 +1,239 @@
+{
+  "info": {
+    "name": "Ticket Management System API",
+    "_postman_id": "7d8a4f5b-1e2c-4c8f-9b1a-123456789000",
+    "description": "Simple Postman collection for Ticket Management System",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth - Register",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"user1\",\n  \"password\": \"password123\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/auth/register",
+          "host": ["{{base_url}}"],
+          "path": ["auth", "register"]
+        }
+      }
+    },
+    {
+      "name": "Auth - Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"user1\",\n  \"password\": \"password123\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/auth/login",
+          "host": ["{{base_url}}"],
+          "path": ["auth", "login"]
+        }
+      }
+    },
+    {
+      "name": "Tickets - Protected Route",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/tickets/protected",
+          "host": ["{{base_url}}"],
+          "path": ["tickets", "protected"]
+        }
+      }
+    },
+    {
+      "name": "Tickets - Create Ticket",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Login issue\",\n  \"description\": \"Unable to login into account\",\n  \"priority\": \"high\",\n  \"category\": \"bug\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/tickets/",
+          "host": ["{{base_url}}"],
+          "path": ["tickets", ""]
+        }
+      }
+    },
+    {
+      "name": "Tickets - List Tickets",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/tickets/",
+          "host": ["{{base_url}}"],
+          "path": ["tickets", ""]
+        }
+      }
+    },
+    {
+      "name": "Tickets - Get Ticket By ID",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/tickets/1",
+          "host": ["{{base_url}}"],
+          "path": ["tickets", "1"]
+        }
+      }
+    },
+    {
+      "name": "Tickets - Update Ticket",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Login issue updated\",\n  \"description\": \"Updated description\",\n  \"priority\": \"medium\",\n  \"category\": \"support\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/tickets/1",
+          "host": ["{{base_url}}"],
+          "path": ["tickets", "1"]
+        }
+      }
+    },
+    {
+      "name": "Tickets - Change Status",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"status\": \"closed\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/tickets/1/status",
+          "host": ["{{base_url}}"],
+          "path": ["tickets", "1", "status"]
+        }
+      }
+    },
+    {
+      "name": "Tickets - Delete Ticket",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/tickets/1",
+          "host": ["{{base_url}}"],
+          "path": ["tickets", "1"]
+        }
+      }
+    },
+    {
+      "name": "Admin - All Tickets",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/admin/tickets",
+          "host": ["{{base_url}}"],
+          "path": ["admin", "tickets"]
+        }
+      }
+    },
+    {
+      "name": "Admin - Stats",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/admin/stats",
+          "host": ["{{base_url}}"],
+          "path": ["admin", "stats"]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8000"
+    },
+    {
+      "key": "token",
+      "value": ""
+    }
+  ]
+}
