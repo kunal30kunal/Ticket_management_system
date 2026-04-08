@@ -15,7 +15,7 @@ The system allows users to create and manage their own tickets, while admins hav
 * Filter, search, sort, and paginate tickets
 * Role-based access (User and Admin)
 * Admin dashboard APIs for ticket statistics
-* simple RAG sytle chatbot
+* Simple RAG style chatbot
 
 ---
 
